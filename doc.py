@@ -1,15 +1,15 @@
 import streamlit as st
 from openai import OpenAI
 import os
-from dotenv import load_dotenv
+
 import json
 import time
 from operator import itemgetter
 from typing import Dict, List
 
 # Load environment variables
-load_dotenv()
-client = OpenAI(api_key=os.getenv("OPENAI_API Enthusiast"))
+openai_api_key = st.secrets.get("OPENAI_API_KEY")
+client = OpenAI(api_key=openai_api_key)
 
 # Doctor database with nutritionists
 DOCTOR_DATABASE = [
